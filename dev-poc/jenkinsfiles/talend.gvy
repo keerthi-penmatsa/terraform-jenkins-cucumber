@@ -9,17 +9,17 @@ node {
         	}
 	withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws_creds', defaultRegion: 'us-east-1']]) {
             ansiColor('xterm') {
-		dir('applications'){	    
+		dir('dev-poc'){	    
 			//Set Datafile Vars
-			datafile = "./datafiles/${talendEnvPath}.tfvars"
+			datafile = "./applications/datafiles/${talendEnvPath}.tfvars"
 		    	talendEnv = params.talendEnvPath?.toUpperCase()
 			
-			sh "../terraform init -reconfigure=true"
-                    	sh "../terraform get -update=true"
+			sh "./applications/terraform init -reconfigure=true"
+                    	sh "./applications/terraform get -update=true"
 		
 		    	if(params.tfPlan){    
                         stage("Infra Template (tfPlan)"){
-                            sh "../terraform plan -var-file=${datafile}"
+                            sh "./applications/terraform plan -var-file=${datafile}"
                         	}
                     	}
 		}
