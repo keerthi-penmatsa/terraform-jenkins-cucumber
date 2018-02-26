@@ -15,6 +15,7 @@ node {
 			datafile = "./datafiles/${talendEnvPath}.tfvars"
 		    	talendEnv = params.talendEnvPath?.toUpperCase()
 			
+				sh "sudo su - ec2-user"
 			sh "terraform init -reconfigure=true"
                     	sh "terraform get -update=true"
 		
