@@ -15,8 +15,8 @@ node {
 			datafile = "./datafiles/${talendEnvPath}.tfvars"
 		    	talendEnv = params.talendEnvPath?.toUpperCase()
 			
-			sh "../terraform init -reconfigure=true"
-                    	sh "../terraform get -update=true"
+			sh "terraform init -reconfigure=true"
+                    	sh "terraform get -update=true"
 		
 		    	if(params.tfPlan){    
                         stage("Infra Template (tfPlan)"){
