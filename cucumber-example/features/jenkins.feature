@@ -11,7 +11,3 @@ Feature: Scripted install of Jenkins
     Scenario: Is ruby 2.4.1 installed
         When I run "ruby -v"
         Then I should see "ruby 2.4.1"
-
-    Scenario: Is the hostname set correctly?
-        When I run "hostname"
-        Then I should see "ip-172-31-82-195"

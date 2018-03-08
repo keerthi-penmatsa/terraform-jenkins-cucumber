@@ -21,3 +21,4 @@ end
 def last_output_line
   output_lines.split[-1]
 end
+

@@ -8,12 +8,12 @@ Feature: Scripted install of Jenkins
 #        Given I am testing the local environment
     Given I am sshed into the \w*\s*environment
 
-    Scenario: Is ruby 2.4.1 installed
+    Scenario: Is ruby 2.3.3 installed
         When I run "ruby -v"
-        Then I should see "ruby 2.4.1"
+        Then I should see "ruby 2.3.3"
 
     Scenario: Is the hostname set correctly?
         When I run "hostname"
-        Then I should see "jenkins1"
+        Then I should see "local"
    
     
